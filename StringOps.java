@@ -49,37 +49,45 @@ public class StringOps {
     
 
     public static String camelCase (String string) {
-        String returnString = "";
+        String retString = "";
         int j = 0;
-        while (j < string.length() && string.charAt(j)== 32){
-            j ++;
+        while (j < string.length() && string.charAt(j) == 32 ){
+            j++;
         }
-        while (j < string.length() && string.charAt(j) != 32){
-            if (string.charAt(j)>='a'){
-                returnString += (char) string.charAt(j);
-            } else {
-                returnString += (char) (string.charAt(j) + 32);
-            }
-            j ++ ;
-        }
-        for (int i = j; i<string.length(); i++){
-            if (string.charAt(i-1) != 32){
-                if (string.charAt(i) >= 'a'){
-                    returnString += (char) string.charAt(i);
-                }else {
-                    returnString += (char) (string.charAt(i) + 32);
-                }
-            }else {
-                if (string.charAt(i) >= 'a'){
-                    returnString += (char) (string.charAt(i)-32);
-                } else {
-                    returnString += (char) (string.charAt(i));
-                }
-          }
-        }
-        return returnString;
     
-    }
+        while (j < string.length() && string.charAt(j) != 32){
+            if (string.charAt(j) >= 'a'){
+                retString += (char)string.charAt(j);
+            }else{
+                retString += (char)(string.charAt(j) + 32);
+            }
+            j++;
+        }
+        
+        for (int i = j; i < string.length(); i++){
+            if (string.charAt(i) != 32){
+                    if (string.charAt(i - 1) != 32){
+                        if (string.charAt(i) >= 'a'){
+                            retString += (char)string.charAt(i);
+                        }else{
+                            retString += (char)(string.charAt(i) + 32);
+                        }
+                    }else{
+                        if (string.charAt(i) >= 'a'){
+                            retString += (char)(string.charAt(i) - 32);
+                        }else{
+                            retString += (char)(string.charAt(i));
+                        
+                        } 
+                    }
+            }
+            
+            }
+        return retString;
+        }
+    
+
+
 
     public static int[] allIndexOf (String string, char chr) {
         
